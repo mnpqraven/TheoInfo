@@ -1,0 +1,226 @@
+---
+title: Uebungsblatt 02
+author: Truong (Hoang Tung Truong), Testfran (Minh Kien Nguyen), Hamdash
+output: pdf_document
+header-includes:
+   - \usepackage{amssymb}
+---
+
+## Aufgabe 1
+a.
+
+$\emptyset^* = \{\epsilon\}$ // Eine Menge, die epsilon enthält
+
+$\emptyset^+ = \emptyset \circ \emptyset^* = \{\} \circ \{\epsilon\} = \{\}$
+
+b.
+
+ $\epsilon$: (das leere Wort) ist ein Wort, das aus keinem einzigen Zeichen besteht. Das leere Wort $\epsilon$ ist also eine leere Folge von Zeichen.
+
+$\emptyset$: (die leere Menge) ist eine Menge, die keine Elemente enthält.
+
+$\{\epsilon\}$: ist eine Menge, die ein Element enthält, welches das leere Wort $\epsilon$ ist.
+
+c.
+
+Für L = $\{\epsilon\}$ ist $L^*$ endlich, da in diesem Fall $L^* = \{\epsilon\}$
+
+d.
+
+Sei $\Sigma = \{a, b\}, L = \{a\} und L' = \{b\}$
+
+Es gilt: $L \circ L =  \{a\} \circ \{a\} =  \{aa\} \ne  \{a\} = L$
+
+Es gilt: $L \circ L' =  \{a\} \circ \{b\} =  \{ab\} \ne  \{ba\} = \{b\} \circ \{a\} =  L' \circ L$
+
+## Aufgabe 2:
+- Definition:
+
+Ein Wort $u = c_0 c_1...c_{n-1}$ ist enthalten in w  $\Leftrightarrow \exists v_0, v_1, ..., v_n: w=v_0 c_0 v_1...c_{n-1} v_n$
+
+- Rekursive Definition:
+
+Sei a beliebig in $\Sigma$ und seien w, u beliebige Worte in $\Sigma^*$
+
+$\epsilon$ enthalten in w $\Leftrightarrow$ true
+
+a.u enthalten in w $\Leftrightarrow \exists s, r: w = s \circ r \land a$ suffix $s \land u$ enthalten in $r$
+
+## Aufgabe 3:
+a.
+**Behauptung:** $\forall u, v, w \in \Sigma^*: (u \circ v) \circ w = u \circ (v \circ w)$
+
+**Induktionsanfang:**
+
+$P(\epsilon) = \forall v, w \in \Sigma^*: (\epsilon \circ v) \circ w = \epsilon \circ (v \circ w)$
+
+$P(\epsilon) \Leftrightarrow \forall v,w \in \Sigma^*: (\epsilon \circ v) \circ w = \epsilon \circ (v \circ w)$
+$\Leftrightarrow \forall v,w \in \Sigma^*: v \circ w = v \circ w$ // Fall 1 in Definition von $\circ$ (Konkatenation)
+
+$1 \Leftrightarrow true$
+
+
+**Induktionsschritt:**
+
+$\forall a \in \Sigma. \forall u' \in \Sigma^*: P(u') \Rightarrow P(a.u')$
+
+$P(a.u') \Leftrightarrow \forall v,w \in \Sigma^*: (a.u' \circ v) \circ w = a.u' \circ (v \circ w)$
+
+$\Leftrightarrow \forall v,w \in \Sigma^*: a.(u' \circ v) \circ w = a.(u' \circ (v \circ w))$ // Fall 2 in Definition von $\circ$ (Konkatenation)
+
+$\Leftrightarrow \forall v,w \in \Sigma^*: a.((u' \circ v) \circ w) = a.(u' \circ (v \circ w))$ // Fall 2 in Definition von $\circ$ (Konkatenation)
+
+$\Leftrightarrow \forall v,w \in \Sigma^*: a.(u' \circ (v \circ w)) = a.(u' \circ (v \circ w))$ // Induktionsvoraussetzung
+
+$\Leftrightarrow true$
+
+**Induktionsschluss:** $\forall w \in \Sigma^*.P(w)$
+
+b.
+**Behauptung:** $\forall u, v \in \Sigma^*: |u \circ v| = |u| + |v|$
+
+**Induktionsanfang:**
+
+$P(u) := \forall v \in \Sigma^*: |u \circ v| = |u| + |v|$
+
+$\Leftrightarrow |\epsilon \circ v| = |\epsilon| + |v|$
+
+$\Leftrightarrow |v| = 0 + |v|$ // Definition von $\circ$ Fall 1 und Definition von Länge Fall 1
+
+$1 \Leftrightarrow true$
+
+
+**Induktionsschritt:**
+
+$\forall a \in \Sigma: \forall u' \in \Sigma^*: P(u') \Rightarrow P(a.u')$
+
+$P(a.u') \Leftrightarrow \forall u,v \in \Sigma^*: |a.u' \circ v| = |a.u'| + |v|$
+
+$\Leftrightarrow |a.(u' \circ v)| = 1 + |u'| + |v|$ // Definition von $\circ$ Fall 2 und Definition von Länge Fall 2
+
+$\Leftrightarrow 1 + |u' \circ v| = 1 + |u'| + |v|$ // Definition von Länge Fall 2
+
+$\Leftrightarrow |u' \circ v| = |u'| + |v|$ // Induktionsvoraussetzung
+
+$\Leftrightarrow true$
+
+**Induktionsschluss:**
+
+$\forall u,v \in \Sigma^*: |u \circ v| = |u| + |v|$
+
+## Aufgabe 4:
+a.
+
+**Behauptung** $\forall n \in \mathbb{N}_0: |\Sigma^n| = |\Sigma|^n$
+
+**Induktionsanfang:**
+
+Für $n=0$: $|\Sigma^0| = |{\epsilon}|$ // $\epsilon$ ist das einzige Wort, das die Länge 0 hat
+
+$= 1$
+
+$|\Sigma|^0 = 1$
+
+$\Rightarrow |\Sigma^0| = |\Sigma|^0 \Leftrightarrow true$
+
+**Induktionsvoraussetzung:**
+
+$\forall n \in \mathbb{N_0}: |\Sigma^0| = |\Sigma|^0$
+
+**Induktionsschritt:**
+$\forall n \in \mathbb{N}: |\Sigma^{n+1}| = |\Sigma|^{n+1}$
+
+Es gilt: $|\Sigma^{n+1}| = |\Sigma|^{n+1}$
+
+$\Leftrightarrow |\Sigma^n \circ \Sigma| = |\Sigma|^{n+1}$ // Definition von $\circ$ für Sprachen Fall 2
+
+$\Leftrightarrow |\Sigma^n|.|\Sigma| = |\Sigma|^{n+1}$ //Produkt bei endlichen Kardinalitäten (da $\Sigma$ endlich ist)
+
+$\Leftrightarrow |\Sigma|^n.|\Sigma| = |\Sigma|^{n+1}$ //Induktionsvoraussetzung
+
+$\Leftrightarrow |\Sigma|^{n+1} = |\Sigma|^{n+1}$
+
+**Induktionsschluss**
+
+$\forall n \in \mathbb{N_0}: |\Sigma^n| = |\Sigma|^n$
+
+b.
+**Behauptung:**
+
+$|\Sigma| = 1$ gilt $\Sigma^{\leq n} = n + 1$ (1)
+
+$|\Sigma| \ne 1$ gilt $\Sigma^{\leq n} = \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$ (2)
+
+**Induktionsanfang** für (1)
+Für $n=0$
+LHS = $|\Sigma^{\leq0}| = |{\epsilon}| = 1 = 0 + 1 = RHS$
+
+**Induktionsvoraussetzung:**
+
+$\forall n \in \mathbb{N}_0, |\Sigma|=1$ gilt $|\Sigma^{\leq n}|=n+1$
+
+**Induktionsschritt**
+
+$\forall n \in \mathbb{N}_0, |\Sigma|=1$ gilt $|\Sigma^{\leq(n+1)}|=(n+1)+1$
+
+LHS = $|\Sigma^{\leq(n+1)}|$
+
+$=|\Sigma^{\leq n} \cup \Sigma^{n+1}|$
+
+$=|\Sigma^{\leq n}| + |\Sigma^{n+1}|$ // Summenregel bei endlichen Kardinalitäten und $\Sigma^{\leq n} \cap \Sigma^{n+1} = \emptyset$
+
+$= n+1+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und A4a
+
+$= (n+1) +1^{n+1}$ // $|\Sigma|=1$
+
+$= RHS$
+
+**Induktionsschluss:** $\forall n \in \mathbb{N}_0, |\Sigma|=1$ gilt $\Sigma^{\leq n}| = n+1$
+
+**Induktionsanfang** für (2)
+
+Für $n=0$
+
+$LHS = |\Sigma^{\leq 0}| = |{\epsilon}|$
+
+$=1$
+
+$=\frac{|\Sigma| -1}{|\Sigma|-1}= \frac{|\Sigma|^{0+1}-1}{|\Sigma|-1}=RHS$
+
+**Induktionsvoraussetzung:** $\forall n \in \mathbb{N}_0, |\Sigma|\neq 1$ gilt
+
+$|\Sigma^{\leq n}=\frac{|\Sigma|^{n+1}}{|\Sigma|-1}$
+
+**Induktionsschritt:** $\forall n \in \mathbb{N}_0, |\Sigma| \neq 1$ gilt
+
+$|\Sigma^{\leq (n+1)}| = \frac{|\Sigma|^{(n+1)+1}-1}{|\Sigma|-1}$
+
+$LHS = |\Sigma^{\leq (n+1)}|$
+
+$=|\Sigma^(n+1)|$
+
+$|\Sigma^{\leq n} \cup \Sigma^{(n+1)}|$
+
+$=|\Sigma^{\leq n}| + |\Sigma^{(n+2)}|$ // Summenredel bei endlichen Kardinalitäten und $\Sigma^{\leq n} \cap \Sigma^{n+1} = \emptyset$
+
+$= \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und A4a
+
+$= \frac{|\Sigma|^{n+1}-1+|\Sigma|^{n+1}(|\Sigma|-1)}{|\Sigma|-1}$
+
+$= \frac{|\Sigma|^{(n+2)+1}-1}{|\Sigma|-1} = RHS$
+
+**Induktionsschluss:** $\forall n \in \mathbb{N}_0, |\Sigma| \neq 1$ gilt:
+$|\Sigma^{\leq n}|=\frac{\Sigma^{n+1}-1}{|\Sigma|-1}$
+
+## Aufgabe 5:
+a. Ja
+
+Wir können (gleichzeitig) den Gast, der sich gerade in Raum 1 befindet, in Raum 2, und den Gast, der sich gerade in Raum 2 befindet, in Raum 3 usw. verschieben (also jeden Gast von seinem aktuellen Raum n in Raum n + 1 verschieben). Dann ist Raum 1 leer und der neue Gast kann in diesen Raum versetzt werden.
+
+b. Ja
+
+Wir verschieben einfach die Person, die Raum 1 belegt, in Raum 2, die Person, die Raum 2 belegt, in Raum 4 und im Allgemeinen die Person, die Raum n belegt, in Raum 2n (alle geraden Zimmer), und alle ungeraden Zimmer (die abzählbar unendlich viel sind) sind für die neuen Gäste frei.
+
+c. Ja
+
+Wir verschieben zunächst im Allgemeinen die Person, die Raum n belegt, in Raum $2^n$ ($n \in \mathbb{N}, n \ne 0$). Für den ersten Zug versetzen wir den i-ten Gast ($i \in \mathbb{N}, i \ne 0$) in Raum $3^i$, für den zweiten Zug den i-ten Gast in Raum $5^i$ und so weiter (also für den n-ten Zug und den i-ten Gast verwenden wir den Raum $c^i$, wobei c die n-te ungerade Primzahl ist).

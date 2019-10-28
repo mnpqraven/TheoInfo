@@ -1,0 +1,36 @@
+Aufgabe 1:
+a)
+ \emptyset^* = \{ \epsilon \} // Eine Menge, die epsilon enthält
+ \emptyset^+ = \emptyset \circ \emptyset^* = \{\} \circ \{\epsilon\} = \{\}
+
+b)
+ \epsilon: (das leere Wort) ist ein Wort, das aus keinem einzigen Zeichen besteht. Das leere Wort \epsilon ist also eine leere Folge von Zeichen.
+\emptyset: (die leere Menge) ist eine Menge, die keine Elemente enthält.
+\{\epsilon\}: ist eine Menge, die ein Element enthält, welches das leere Wort \epsilon ist.
+
+c)
+Für L = \{\epsilon\} ist L^* endlich, da in diesem Fall L^* = \{\epsilon\}
+
+d)
+Sei \Sigma = \{a, b\}, L = \{a\} und L' = \{b\}
+Es gilt: L \circ L =  \{a\} \circ \{a\} =  \{aa\} \ne  \{a\} = L
+Es gilt: L \circ L' =  \{a\} \circ \{b\} =  \{ab\} \ne  \{ba\} = \{b\} \circ \{a\} =  L' \circ L
+
+Aufgabe 2:
+Definition:
+Ein Wort u = c_0c_1...c_{n-1} ist enthalten in w  \Leftrightarrow \exists v_0, v_1, ..., v_n: w=v_0c_0v_1...c_{n-1}v_n
+Rekursive Definition:
+Sei a beliebig in \Sigma und seien w, u beliebige Worte in \Sigma^*
+\epsilon enthalten in w \Leftrightarrow true
+a.u enthalten in w \Leftrightarrow \exist s, r: w = s \circ r \land a suffix s \land u enthalten in r
+
+Aufgabe 3:
+a) Gõ lại toàn bộ Beweis, điền thêm Comment (//) bằng MÀU KHÁC vào cuối những dòng sau:
+
+Đoạn Induktionsanfang, dòng 3 (v tròn w = v tròn w), ghi: // Fall 1 in Definition von \circ (Konkatenation)
+
+Đoạn Induktionsschritt, ở cả hai dòng 3 và 4 (chứa dấu tương đương thứ 2 và 3 từ trên xuống), ghi: // Fall 2 in Definition von \circ (Konkatenation)
+
+Đoạn Induktionsschritt, ở cả dòng 5 (chứa dấu tương đương thứ 4 từ trên xuống), ghi: // Induktionsvoraussetzung
+
+b) Gõ lại Beweis trong ảnh em gửi ha
