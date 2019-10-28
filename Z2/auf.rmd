@@ -9,7 +9,7 @@ header-includes:
 ## Aufgabe 1
 a.
 
-$\emptyset^* = \{\epsilon\}$ // Eine Menge, die epsilon enthält
+$\emptyset^* = \{\epsilon\}$
 
 $\emptyset^+ = \emptyset \circ \emptyset^* = \{\} \circ \{\epsilon\} = \{\}$
 
@@ -23,11 +23,11 @@ $\{\epsilon\}$: ist eine Menge, die ein Element enthält, welches das leere Wort
 
 c.
 
-Für L = $\{\epsilon\}$ ist $L^*$ endlich, da in diesem Fall $L^* = \{\epsilon\}$
+Für L = $\{\epsilon\}$ ist $L^*$ endlich, da in diesem Fall $L^* = \{\epsilon\}$, d.h $|L^*| =1$
 
 d.
 
-Sei $\Sigma = \{a, b\}, L = \{a\} und L' = \{b\}$
+Sei $\Sigma = \{a, b\}, L = \{a\}$ und $L' = \{b\}$
 
 Es gilt: $L \circ L =  \{a\} \circ \{a\} =  \{aa\} \ne  \{a\} = L$
 
@@ -44,7 +44,7 @@ Sei a beliebig in $\Sigma$ und seien w, u beliebige Worte in $\Sigma^*$
 
 $\epsilon$ enthalten in w $\Leftrightarrow$ true
 
-a.u enthalten in w $\Leftrightarrow \exists s, r: w = s \circ r \land a$ suffix $s \land u$ enthalten in $r$
+a.u enthalten in w $\Leftrightarrow \exists s, r \in \Sigma^*: w = s \circ r \land a$ suffix $s \land u$ enthalten in $r$
 
 ## Aufgabe 3:
 a.
@@ -57,12 +57,12 @@ $P(\epsilon) = \forall v, w \in \Sigma^*: (\epsilon \circ v) \circ w = \epsilon 
 $P(\epsilon) \Leftrightarrow \forall v,w \in \Sigma^*: (\epsilon \circ v) \circ w = \epsilon \circ (v \circ w)$
 $\Leftrightarrow \forall v,w \in \Sigma^*: v \circ w = v \circ w$ // Fall 1 in Definition von $\circ$ (Konkatenation)
 
-$1 \Leftrightarrow true$
+$\Leftrightarrow true$
 
 
 **Induktionsschritt:**
 
-$\forall a \in \Sigma. \forall u' \in \Sigma^*: P(u') \Rightarrow P(a.u')$
+$\forall a \in \Sigma. \forall u' \in \Sigma^*: P(u') \rightarrow P(a.u')$
 
 $P(a.u') \Leftrightarrow \forall v,w \in \Sigma^*: (a.u' \circ v) \circ w = a.u' \circ (v \circ w)$
 
@@ -79,28 +79,28 @@ $\Leftrightarrow true$
 b.
 **Behauptung:** $\forall u, v \in \Sigma^*: |u \circ v| = |u| + |v|$
 
+Beweis mittel Induktion uber $u$, wahle $P(u) = \forall v \in \Sigma^*: |u \circ v| = |u| + |v|$
+
 **Induktionsanfang:**
 
-$P(u) := \forall v \in \Sigma^*: |u \circ v| = |u| + |v|$
+$P(\epsilon) := \forall v \in \Sigma^*: |\epsilon \circ v| = |\epsilon| + |v|$
 
-$\Leftrightarrow |\epsilon \circ v| = |\epsilon| + |v|$
+$\forall v \in \Sigma^*: |v| = 0 + |v|$ // Definition von $\circ$ Fall 1 und Definition von Länge Fall 1
 
-$\Leftrightarrow |v| = 0 + |v|$ // Definition von $\circ$ Fall 1 und Definition von Länge Fall 1
-
-$1 \Leftrightarrow true$
+$\Leftrightarrow true$
 
 
 **Induktionsschritt:**
 
-$\forall a \in \Sigma: \forall u' \in \Sigma^*: P(u') \Rightarrow P(a.u')$
+$\forall a \in \Sigma: \forall u' \in \Sigma^*: P(u') \rightarrow P(a.u')$
 
-$P(a.u') \Leftrightarrow \forall u,v \in \Sigma^*: |a.u' \circ v| = |a.u'| + |v|$
+$P(a.u') \Leftrightarrow \forall v \in \Sigma^*: |a.u' \circ v| = |a.u'| + |v|$
 
-$\Leftrightarrow |a.(u' \circ v)| = 1 + |u'| + |v|$ // Definition von $\circ$ Fall 2 und Definition von Länge Fall 2
+$\Leftrightarrow \forall v \in \Sigma^*: |a.(u' \circ v)| = 1 + |u'| + |v|$ // Definition von $\circ$ Fall 2 und Definition von Länge Fall 2
 
-$\Leftrightarrow 1 + |u' \circ v| = 1 + |u'| + |v|$ // Definition von Länge Fall 2
+$\Leftrightarrow \forall v \in \Sigma^*: 1 + |u' \circ v| = 1 + |u'| + |v|$ // Definition von Länge Fall 2
 
-$\Leftrightarrow |u' \circ v| = |u'| + |v|$ // Induktionsvoraussetzung
+$\Leftrightarrow \forall v \in \Sigma^*: |u' \circ v| = |u'| + |v|$ // Induktionsvoraussetzung
 
 $\Leftrightarrow true$
 
@@ -115,45 +115,49 @@ a.
 
 **Induktionsanfang:**
 
-Für $n=0$: $|\Sigma^0| = |{\epsilon}|$ // $\epsilon$ ist das einzige Wort, das die Länge 0 hat
+Für $n=0$: $|\Sigma^0| = |\{\epsilon\}|$ // $\epsilon$ ist das einzige Wort, das die Länge 0 hat
 
 $= 1$
 
-$|\Sigma|^0 = 1$
+$|\Sigma|^0 = 1$ // $\forall a \in \mathbb{N}_0: a^0 = 1$
 
 $\Rightarrow |\Sigma^0| = |\Sigma|^0 \Leftrightarrow true$
 
 **Induktionsvoraussetzung:**
 
-$\forall n \in \mathbb{N_0}: |\Sigma^0| = |\Sigma|^0$
+$\forall n \in \mathbb{N}_0: |\Sigma^n| = |\Sigma|^n$
 
 **Induktionsschritt:**
-$\forall n \in \mathbb{N}: |\Sigma^{n+1}| = |\Sigma|^{n+1}$
+$\forall n \in \mathbb{N}_0: |\Sigma^{n+1}| = |\Sigma|^{n+1}$
 
 Es gilt: $|\Sigma^{n+1}| = |\Sigma|^{n+1}$
 
 $\Leftrightarrow |\Sigma^n \circ \Sigma| = |\Sigma|^{n+1}$ // Definition von $\circ$ für Sprachen Fall 2
 
-$\Leftrightarrow |\Sigma^n|.|\Sigma| = |\Sigma|^{n+1}$ //Produkt bei endlichen Kardinalitäten (da $\Sigma$ endlich ist)
+$\Leftrightarrow |\Sigma^n|.|\Sigma| = |\Sigma|^{n+1}$ // Produktregeln bei endlichen Kardinalitäten (da $\Sigma$ endlich ist)
 
-$\Leftrightarrow |\Sigma|^n.|\Sigma| = |\Sigma|^{n+1}$ //Induktionsvoraussetzung
+$\Leftrightarrow |\Sigma|^n.|\Sigma| = |\Sigma|^{n+1}$ // Induktionsvoraussetzung
 
 $\Leftrightarrow |\Sigma|^{n+1} = |\Sigma|^{n+1}$
 
+$\Leftrightarrow true$
+
 **Induktionsschluss**
 
-$\forall n \in \mathbb{N_0}: |\Sigma^n| = |\Sigma|^n$
+$\forall n \in \mathbb{N}_0: |\Sigma^n| = |\Sigma|^n$
 
 b.
 **Behauptung:**
 
-$|\Sigma| = 1$ gilt $\Sigma^{\leq n} = n + 1$ (1)
+$\forall n \in \mathbb{N}_0: |\Sigma| = 1$ gilt $|\Sigma^{\leq n}| = n + 1$ (1)
 
-$|\Sigma| \ne 1$ gilt $\Sigma^{\leq n} = \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$ (2)
+$\forall n \in \mathbb{N}_0: |\Sigma| \ne 1$ gilt $\Sigma^{\leq n} = \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$ (2)
 
 **Induktionsanfang** für (1)
-Für $n=0$
-LHS = $|\Sigma^{\leq0}| = |{\epsilon}| = 1 = 0 + 1 = RHS$
+
+Für $n=0$:
+
+LHS = $|\Sigma^{\leq0}| = |\{\epsilon\}| = 1 = 0 + 1 = RHS$
 
 **Induktionsvoraussetzung:**
 
@@ -169,19 +173,21 @@ $=|\Sigma^{\leq n} \cup \Sigma^{n+1}|$
 
 $=|\Sigma^{\leq n}| + |\Sigma^{n+1}|$ // Summenregel bei endlichen Kardinalitäten und $\Sigma^{\leq n} \cap \Sigma^{n+1} = \emptyset$
 
-$= n+1+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und A4a
+$= n+1+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und bewiesene Aufgabe 4A
 
 $= (n+1) +1^{n+1}$ // $|\Sigma|=1$
 
+$= (n+1) +1$
+
 $= RHS$
 
-**Induktionsschluss:** $\forall n \in \mathbb{N}_0, |\Sigma|=1$ gilt $\Sigma^{\leq n}| = n+1$
+**Induktionsschluss:** $\forall n \in \mathbb{N}_0, |\Sigma|=1$ gilt $|\Sigma^{\leq n}| = n+1$
 
 **Induktionsanfang** für (2)
 
 Für $n=0$
 
-$LHS = |\Sigma^{\leq 0}| = |{\epsilon}|$
+$LHS = |\Sigma^{\leq 0}| = |\{\epsilon\}|$
 
 $=1$
 
@@ -189,7 +195,7 @@ $=\frac{|\Sigma| -1}{|\Sigma|-1}= \frac{|\Sigma|^{0+1}-1}{|\Sigma|-1}=RHS$
 
 **Induktionsvoraussetzung:** $\forall n \in \mathbb{N}_0, |\Sigma|\neq 1$ gilt
 
-$|\Sigma^{\leq n}=\frac{|\Sigma|^{n+1}}{|\Sigma|-1}$
+$|\Sigma^{\leq n}|=\frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$
 
 **Induktionsschritt:** $\forall n \in \mathbb{N}_0, |\Sigma| \neq 1$ gilt
 
@@ -197,20 +203,18 @@ $|\Sigma^{\leq (n+1)}| = \frac{|\Sigma|^{(n+1)+1}-1}{|\Sigma|-1}$
 
 $LHS = |\Sigma^{\leq (n+1)}|$
 
-$=|\Sigma^(n+1)|$
+$=|\Sigma^{\leq n} \cup \Sigma^{(n+1)}|$
 
-$|\Sigma^{\leq n} \cup \Sigma^{(n+1)}|$
+$=|\Sigma^{\leq n}| + |\Sigma^{(n+1)}|$ // Summenregel bei endlichen Kardinalitäten und $\Sigma^{\leq n} \cap \Sigma^{n+1} = \emptyset$
 
-$=|\Sigma^{\leq n}| + |\Sigma^{(n+2)}|$ // Summenredel bei endlichen Kardinalitäten und $\Sigma^{\leq n} \cap \Sigma^{n+1} = \emptyset$
-
-$= \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und A4a
+$= \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}+|\Sigma|^{n+1}$ // Induktionsvoraussetzung und bewiesene Aufgabe 4A
 
 $= \frac{|\Sigma|^{n+1}-1+|\Sigma|^{n+1}(|\Sigma|-1)}{|\Sigma|-1}$
 
-$= \frac{|\Sigma|^{(n+2)+1}-1}{|\Sigma|-1} = RHS$
+$= \frac{|\Sigma|^{(n+1)+1}-1}{|\Sigma|-1} = RHS$
 
 **Induktionsschluss:** $\forall n \in \mathbb{N}_0, |\Sigma| \neq 1$ gilt:
-$|\Sigma^{\leq n}|=\frac{\Sigma^{n+1}-1}{|\Sigma|-1}$
+$|\Sigma^{\leq n}|=\frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$
 
 ## Aufgabe 5:
 a. Ja
