@@ -85,7 +85,7 @@ Beweis mittel Induktion uber $u$, wahle $P(u) = \forall v \in \Sigma^*: |u \circ
 
 $P(\epsilon) := \forall v \in \Sigma^*: |\epsilon \circ v| = |\epsilon| + |v|$
 
-$\forall v \in \Sigma^*: |v| = 0 + |v|$ // Definition von $\circ$ Fall 1 und Definition von Länge Fall 1
+$\Leftrightarrow \forall v \in \Sigma^*: |v| = 0 + |v|$ // Definition von $\circ$ Fall 1 und Definition von Länge Fall 1
 
 $\Leftrightarrow true$
 
@@ -149,9 +149,9 @@ $\forall n \in \mathbb{N}_0: |\Sigma^n| = |\Sigma|^n$
 b.
 **Behauptung:**
 
-$\forall n \in \mathbb{N}_0: |\Sigma| = 1$ gilt $|\Sigma^{\leq n}| = n + 1$ (1)
+$\forall n \in \mathbb{N}_0, |\Sigma| = 1$ gilt $|\Sigma^{\leq n}| = n + 1$ (1)
 
-$\forall n \in \mathbb{N}_0: |\Sigma| \ne 1$ gilt $\Sigma^{\leq n} = \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$ (2)
+$\forall n \in \mathbb{N}_0, |\Sigma| \ne 1$ gilt $\Sigma^{\leq n} = \frac{|\Sigma|^{n+1}-1}{|\Sigma|-1}$ (2)
 
 **Induktionsanfang** für (1)
 
