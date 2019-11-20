@@ -42,7 +42,7 @@ b. $L = \{a^n b^n| n \in \mathbb{N} \land n > 0\}$
 
   $[a^k b] = \{ a^{k+i-1} b^i|i \geq 1\} (k\in \mathbb{N}),...$
 
-- $\Sigma^* - L_2$ mit $\Sigma = \{a,b\} = \{bx, a^n b^m, xbay$ $|$ $x,y \in \Sigma^* \land n,m \in \mathbb{N} \land m > n\}$, also diese Äquivalenzklasse enthält alle Wörte, die nicht in $L_2$ sind.
+- $\Sigma^* - L_2 = \{bx, a^n b^m, xbay$ $|$ $x,y \in \Sigma^* \land n,m \in \mathbb{N} \land m > n\}$ mit $\Sigma = \{a,b\}$, also diese Äquivalenzklasse enthält alle Wörte, die nicht in $L_2$ sind.
 
 ## Aufgabe 3
 a.
@@ -107,7 +107,8 @@ b. Z.z: Der Minimalautomat $A/\sim$ besitzt eine minimale Anzahl an Zuständen
   Nach Nerode-Lemma, da A ein DFA ist, gibt es eine minimale endliche Menge von $n$ Worten, die paarweise L-trennbar sind, und daraus folgt, jeder Automat, der L erkennt, hat mindesten $n$ Zustände (inklusiv $A/\sim$)
 -  $n$ ist aber auch die Anzahl der Äquivalenzklassen($|R_L|$ - der Index der Sprache L) von L, denn diese $n$ Worte sind paarweise L-trennbar.
 
- Zwei Worte $u,v \in \Sigma^*$ sind in derselben Äquivalenzklassen von $L (u \sim_L v)$, genau dann wenn $\forall w \in \Sigma^*: (uw \in L \Leftrightarrow vw \in L)$
+ Zwei Worte $u,v \in \Sigma^*$ sind in derselben Äquivalenzklasse von $L$ $(u$ $R_L$ $v)$ bzgl. L-Trennbarkeit, genau dann wenn $\forall w \in \Sigma^*: (uw \in L \Leftrightarrow vw \in L)$
+
 - Der Minimalautomat $A/\sim$ wird als der Faktorautomat ohne die nicht erreichbaren Zustände
 
   $A/\sim := (Q/\sim, \Sigma, \delta_{\sim}, [q_0]_{\sim},F_{\sim})$ mit $Q/\sim := \{[q]_{\sim}$ $|$ $q \in Q\}$ aus $A = (Q, \Sigma, \delta, q_0, F)$
@@ -119,6 +120,7 @@ b. Z.z: Der Minimalautomat $A/\sim$ besitzt eine minimale Anzahl an Zuständen
 Z.z: $\forall w \in \Sigma^*: \delta_{A\times B}^*((p,q),w) = (\delta_A^*(p,w),\delta_B^*(q,w))$
 
 Induktionbeweis:
+
 **IA**: $w = \epsilon$
 
 $LHS = \delta_{A\times B}^*((p,q),\epsilon) = (p,q)$ //Ausdehnung von $\delta$ auf Worte, 1. Fall in Definition von $\delta^*$
@@ -141,4 +143,4 @@ $= (\delta_{A}^* (p,a.u), \delta_{B}^* (p,a.u))$ // 2. Fall in Definition von $\
 
 $= RHS$.
 
-Also $\forall w \in \Sigma^*: \delta_{A\times B}^*((p,q),w) = (\delta_A^*(p,w),\delta_B^*(q,w))$
+Also $\forall w \in \Sigma^*: \delta_{A\times B}^*((p,q),w) = (\delta_A^*(p,w),\delta_B^*(q,w))$ $\Box$
