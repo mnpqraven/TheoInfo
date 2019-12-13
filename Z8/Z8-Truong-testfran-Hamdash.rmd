@@ -1,0 +1,171 @@
+---
+title: Uebungsblatt 08
+author: Truong (Hoang Tung Truong), Testfran (Minh Kien Nguyen), Hamdash
+output: pdf_document
+header-includes:
+   - \usepackage{amssymb,diagbox,xcolor}
+---
+
+## Aufgabe 1
+$abbaabbbaba \in L((ab^* a)^* + ((abb)^* (ab)^* ba)^*)?$
+
+$(abbaabbbaba)^{-1}((ab^* a)^* + ((abb)^* (ab)^* ba)^*)$
+
+$= (abbaabbbaba)^{-1}((ab^* a)^*) + (abbaabbbaba)^{-1}(((abb)^* (ab)^* ba)^*)$
+
+$= (abbaabbbaba)^{-1}((ab^* a)^*) + (abbaabbbaba)^{-1}(((abb)^* (ab)^* ba)^*)$
+
+$= (bbaabbbaba)^{-1}a^{-1}(ab^* a)^*(ab^* a)^* + (abbaabbbaba)^{-1} a^{-1}((abb + 1)(ab)^* ba)((abb)?(ab)^* ba)^*$
+
+$= (baabbbaba)^{-1}b^{-1}((b^* a) (ab^* a)^*) + (bbaabbbaba)^{-1} a^{-1}(((a^{-1}(abb)(ab)^* ba +0) + (a^{-1} ((ab)^* ba))) ((abb)? (ab)^* ba)^*)$
+
+$= (baabbbaba)^{-1} (((b^{-1} bb^* a) + b^{-1}a)(ab^* a)^*) + (bbaabbbaba)^{-1} (((bb)(ab)^* ba + (a^{-1} (ab)(ab)^* ba + a^{-1}(ba))) ((abb)? (ab)^* ba)^*)$
+
+$= (aabbbaba)^{-1} b^{-1}((b^* a)(ab^* a)^*) + (baabbbaba)^{-1} b^{-1} ((bb(ab)^* ba + b(ab)^* ba) ((abb)? (ab)^* ba)^*)$
+
+$= (abbbaba)^{-1} a^{-1} ((b^* a) (ab^* a)^*) + (aabbbaba)^{-1} b^{-1}((b(ab)^* ba + (ab)^* ba) ((abb)? (ab)^* ba)^*)$
+
+$= (abbbaba)^{-1} ((a^{-1} bb^* a + a^{-1} a)(ab^* a)^*) + (abbbaba)^{-1} a^{-1} (((ab)^* ba + a) ((abb)? (ab)^* ba)*)$
+
+$= (bbbaba)^{-1} a^{-1} (ab^* a)(ab^* a)^* + (bbbaba)^{-1} a^{-1} (((b(ab)^* ba + 0) +1) ((abb)? (ab)^* ba)^*)$
+
+$= (bbaba)^{-1} b^{-1} ((b^* a)(ab^* a)^*) + (bbbaba)^{-1}(0 + a^{-1} ((abb)?(ab)^* ba)((abb)?(ab)^* ba)^*)$
+
+$= (baba)^{-1} b^{-1} ((b^* a)(ab^* a)^*) + (bbbaba)^{-1}(((a^{-1}(abb)(ab)^* ba + 0) + (a^{-1} ((ab)^* ba))) ((abb)? (ab)^* ba)^*)$
+
+$= (aba)^{-1} b^{-1} ((b^* a)(ab^* a)^*) + (bbbaba)^{-1} ((bb(ab)^* ba + b(ab)^* ba)((abb)? (ab)^* ba)^*)$
+
+$= (ba)^{-1} a^{-1} ((b^* a)(ab^* a)^*) + (bbaba)^{-1} b^{-1} ((bb(ab)^* ba + b(ab)^* ba)((abb)?(ab)^* ba)^*)$
+
+$= (ba)^{-1}((a^{-1} bb^* a + a^{-1} a)(ab^* a) + (baba)^{-1} b^{-1}((b(ab)^* ba + (ab)^* ba)((abb)?(ab)^* ba)^*)$
+
+$= (a)^{-1} b^{-1} ((ab^* a)(ab^* a)) + (baba)^{-1} (((ab)^* ba + (0+a))((abb)?(ab)^* ba)^*)$
+
+$= 0 + (aba)^{-1} b^{-1} (((ab)^* ba + a)((abb)? (ab)^* ba)^*)$
+
+$= (aba)^{-1} (((b^{-1} (ab)(ab)^* ba + b^{-1} (ba)) + b^{-1} a)((abb)?(ab)^* ba)^*)$
+
+$= (ba)^{-1} a^{-1} (a ((abb)? (ab)^* ba)^*)$
+
+$= (a)^{-1} b^{-1} ((abb)?(ab)^* ba)((abb)?(ab)^* ba)^*$
+
+$= (a)^{-1} ((b^{-1} ((abb)?)(ab)^* ba + b^{-1} ((ab)^* ba))((abb)?(ab)^* ba)^*)$
+
+$= (a)^{-1} (((0 + 0) + (0+ a))((abb)? (ab)^* ba)^*)$ CHECK NGOAC DONG NAY
+
+$= ((abb)? (ab)^* ba)^* \lor (((abb)? (ab)^* ba)^*) =1$ also
+
+$abbaabbbaba \in L((ab^* a)^* + ((abb)? (ab)^* ba)^*)$
+
+## Aufgabe 2
+$L(P_1) = \{w \in \{a, b\}^*$ $|$ $2$ $|$ $|w|\}$
+
+Beispiel: $G \Rightarrow a\mathcal{U}$
+
+$\Rightarrow aaG$
+
+$\Rightarrow aab\mathcal{U}$
+
+$\Rightarrow aabaG$
+
+$\Rightarrow aaba\epsilon = aaba$
+
+$L(P_2) = \{w \in \{a,b\}^*$ $|$ $aa$ ist kein Teilwort von $w\}$
+
+Beispiel: Ableitung von $ababba \in L(P_2)$
+
+$A_0 \Rightarrow aA_1$
+
+$\Rightarrow abA_0$
+
+$\Rightarrow abaA_1$
+
+$\Rightarrow ababA_0$
+
+$\Rightarrow ababbA_0$
+
+$\Rightarrow ababbaA_1$
+
+$\Rightarrow ababba\epsilon = ababba$
+
+$L(P_3) = \{ a^m b^n c^p d^q$ $|$ $m,n,p,q \in \mathbb{N}_0, m \geq q, n \leq p, m+ n = p + q\}$
+
+Beispiel: Ableitung von $a^5 b^2 c^4 d^3 6 L(P_3)$
+
+$S \Rightarrow aSd \Rightarrow aaSdd \Rightarrow aaaSddd$
+
+$\Rightarrow aaaBddd$
+
+$\Rightarrow aaaaBcddd$
+
+$\Rightarrow aaaaaBccddd$
+
+$\Rightarrow aaaaaAccddd$
+
+$\Rightarrow aaaaabAcccddd$
+
+$\Rightarrow aaaaabbAccccddd$
+
+$\Rightarrow aaaaabb\epsilon ccccddd = a^5 b^2 c^4 d^3$
+
+## Aufgabe 4
+a.
+- Automat A hat einen nicht erreichbaren Zustand $q_6$, welcher entfernt wird
+- $\Sigma_A = \{a,b\}, F = \{q_3, q_7\}, Q-F = \{q_0, q_1, q_2, q_4, q_5, q_8\}$
+- Wir beginnen damit, in der Tabelle die Paare zu markieren, bei denen einer in F ist und der andere nicht.
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+  &$q_0$& $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & $q_7$ & $q_8$ \\ \hline
+$q_0$ &\diagbox{}{}&   &   & x &   &   & x & \\ \hline
+$q_1$ &\diagbox{}{}&\diagbox{}{}&   & x &   &   & x & \\ \hline
+$q_2$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x &   &   & x & \\ \hline
+$q_3$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & x &   & x \\ \hline
+$q_4$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&   & x & \\ \hline
+$q_5$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & \\ \hline
+$q_7$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} & x \\ \hline
+$q_8$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} &\diagbox{}{}
+\end{tabular}
+
+- Als nächstes wählen wir $e := a \in \Sigma_A$ und markieren alle $(q_i, q_j)$ $(i<j)$ für die $(\delta(q_i,e), \delta (q_j,e))$ schon markiert ist
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+  &$q_0$& $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & $q_7$ & $q_8$ \\ \hline
+$q_0$ &\diagbox{}{}& \textbf{x} &  \textbf{x} & x &   &  \textbf{x} & x & \\ \hline
+$q_1$ &\diagbox{}{}&\diagbox{}{}&   & x &  \textbf{x} &   & x & \textbf{x}\\ \hline
+$q_2$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x &  \textbf{x} &   & x & \textbf{x}\\ \hline
+$q_3$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & x &   & x \\ \hline
+$q_4$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&  \textbf{x} & x & \\ \hline
+$q_5$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & \textbf{x}\\ \hline
+$q_7$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} & x \\ \hline
+$q_8$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} &\diagbox{}{}
+\end{tabular}
+
+- Wir wiederholen das Gleicher mit $e := b$
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+  &$q_0$& $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & $q_7$ & $q_8$ \\ \hline
+$q_0$ &\diagbox{}{}& x &  x & x &   &  x & x & \\ \hline
+$q_1$ &\diagbox{}{}&\diagbox{}{}& \textbf{x}  & x &  x &   & x & x\\ \hline
+$q_2$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x &  x & \textbf{x}  & x & x\\ \hline
+$q_3$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & x &   & x \\ \hline
+$q_4$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&  \textbf{x} & x & \\ \hline
+$q_5$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}& x & x\\ \hline
+$q_7$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} & x \\ \hline
+$q_8$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} &\diagbox{}{}
+\end{tabular}
+
+- Erneute Versuche mit $e := a$ und $e := b$ bringt keine neue Markierung.
+- Die nicht markierten Position in der oberen tabelle zeigen, welche Zustände äquivalent sind. Hier bestehen die Äquivalenzklassen von $\sim$ aus $\{q_0,q_4,q_8\},\{q_1, q_5\},\{q_3,q_7\},\{q_2\}$. Das Automat A ist schon minimal.
+
+
+\pagebreak
+
+## Aufgabe 6
+
+Sei $\Sigma = \{q_1, ... q_n\}$ ein Alphabet.
+
+Es gilt: für jedes Zeichen $a \in \Sigma_A$ ist $\{a\}$ eine reguläre Sprache.
+
+(Fall 1 in der Definition von regulären Sprachen). Daraus folgt: Für jedes Wort $w \in \Sigma^*$ ist $\{w\}$ auch eine reguläre Sprache, denn für $w = q_1 q_2 ... q_n$ gilt $\{w\} = \{a_1\} \circ \{a_2\} \circ ... \circ \{a_n\}$
+
+(nach Fall 2 in der Definition von regulären Sprachen). Sei $L = \{w_1, w_2, ..., w_m\} = \{w_1\} \cup \{w_2\} \cup ... \cup \{w_m\}$ und der oben gezeigten Eigenschaft gilt: L ist eine reguläre Sprache
