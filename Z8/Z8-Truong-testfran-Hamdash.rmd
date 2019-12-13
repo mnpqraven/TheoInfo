@@ -51,16 +51,18 @@ $= (a)^{-1} b^{-1} ((abb)?(ab)^* ba)((abb)?(ab)^* ba)^*$
 
 $= (a)^{-1} ((b^{-1} ((abb)?)(ab)^* ba + b^{-1} ((ab)^* ba))((abb)?(ab)^* ba)^*)$
 
-$= (a)^{-1} (((0 + 0) + (0+ a))((abb)? (ab)^* ba)^*)$ CHECK NGOAC DONG NAY
+$= (a)^{-1} (((0 + 0) + (0+ a))((abb)? (ab)^* ba)^*)$
 
 $= ((abb)? (ab)^* ba)^* \lor (((abb)? (ab)^* ba)^*) =1$ also
 
 $abbaabbbaba \in L((ab^* a)^* + ((abb)? (ab)^* ba)^*)$
 
 ## Aufgabe 2
-$L(P_1) = \{w \in \{a, b\}^*$ $|$ $2$ $|$ $|w|\}$
+$L(P_1) = \{w \in \{a, b\}^*$ $\exists k \in \mathbb{N}_0:$|w| = 2k\}$
 
-Beispiel: $G \Rightarrow a\mathcal{U}$
+Beispiel: Ableitung von $ababba \in L(P_1)$
+
+$G \Rightarrow a\mathcal{U}$
 
 $\Rightarrow aaG$
 
@@ -88,9 +90,9 @@ $\Rightarrow ababbaA_1$
 
 $\Rightarrow ababba\epsilon = ababba$
 
-$L(P_3) = \{ a^m b^n c^p d^q$ $|$ $m,n,p,q \in \mathbb{N}_0, m \geq q, n \leq p, m+ n = p + q\}$
+$L(P_3) = \{ a^m b^n c^p d^q$ $|$ $\exists m,n,p,q \in \mathbb{N}_0: m \geq q, n \leq p, m + n = p + q\}$
 
-Beispiel: Ableitung von $a^5 b^2 c^4 d^3 6 L(P_3)$
+Beispiel: Ableitung von $a^5 b^2 c^4 d^3 \in L(P_3)$
 
 $S \Rightarrow aSd \Rightarrow aaSdd \Rightarrow aaaSddd$
 
@@ -140,7 +142,7 @@ $q_7$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox
 $q_8$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{} &\diagbox{}{}
 \end{tabular}
 
-- Wir wiederholen das Gleicher mit $e := b$
+- Wir wiederholen das Gleiche mit $e := b$
 
 \begin{tabular}{c|c|c|c|c|c|c|c|c}
   &$q_0$& $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & $q_7$ & $q_8$ \\ \hline
@@ -155,17 +157,19 @@ $q_8$ &\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox{}{}&\diagbox
 \end{tabular}
 
 - Erneute Versuche mit $e := a$ und $e := b$ bringt keine neue Markierung.
-- Die nicht markierten Position in der oberen tabelle zeigen, welche Zustände äquivalent sind. Hier bestehen die Äquivalenzklassen von $\sim$ aus $\{q_0,q_4,q_8\},\{q_1, q_5\},\{q_3,q_7\},\{q_2\}$. Das Automat A ist schon minimal.
+- Die nicht markierten Positionen in der oberen Tabelle zeigen, welche Zustände äquivalent sind. Hier bestehen die Äquivalenzklassen von $\sim$ aus $\{q_0,q_4,q_8\},\{q_1, q_5\},\{q_3,q_7\},\{q_2\}$.
 
+THEM CAI HINH AUTOMAT
 
+b. (ba^* ba^* b)^* a (b+a(ba^* ba^* b)^* a)^*
 \pagebreak
 
 ## Aufgabe 6
 
 Sei $\Sigma = \{q_1, ... q_n\}$ ein Alphabet.
 
-Es gilt: für jedes Zeichen $a \in \Sigma_A$ ist $\{a\}$ eine reguläre Sprache.
+Es gilt: für jedes Zeichen $a \in \Sigma_A$ ist $\{a\}$ eine reguläre Sprache. (Fall 1 in der Definition von regulären Sprachen).
 
-(Fall 1 in der Definition von regulären Sprachen). Daraus folgt: Für jedes Wort $w \in \Sigma^*$ ist $\{w\}$ auch eine reguläre Sprache, denn für $w = q_1 q_2 ... q_n$ gilt $\{w\} = \{a_1\} \circ \{a_2\} \circ ... \circ \{a_n\}$
+Daraus folgt: Für jedes Wort $w \in \Sigma^*$ ist $\{w\}$ auch eine reguläre Sprache, denn für $w = a_1 a_2 ... a_n$ gilt $\{w\} = \{a_1\} \circ \{a_2\} \circ ... \circ \{a_n\}$ (nach Fall 2 in der Definition von regulären Sprachen).
 
-(nach Fall 2 in der Definition von regulären Sprachen). Sei $L = \{w_1, w_2, ..., w_m\} = \{w_1\} \cup \{w_2\} \cup ... \cup \{w_m\}$ und der oben gezeigten Eigenschaft gilt: L ist eine reguläre Sprache
+Sei $L = \{w_1, w_2, ..., w_m\}$ eine endliche Teilmenge von $\Sigma^*$, also eine endliche Sprache. Aus der definition $L = \{w_1, w_2,...,w_m\} = \{w_1\} \cup \{w_2\} \cup ... \cup \{w_m\}$ und der oben gezeigten Eigenschaft gilt: L ist eine reguläre Sprache (nach Fall 2 in der Definition von regulären Sprachen).
