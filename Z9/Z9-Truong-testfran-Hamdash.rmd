@@ -1,0 +1,163 @@
+---
+title: Uebungsblatt 09
+author: Truong (Hoang Tung Truong), Testfran (Minh Kien Nguyen), Hamdash
+output: pdf_document
+header-includes:
+   - \usepackage{amssymb,diagbox,xcolor}
+---
+
+## Aufgabe 1
+a. $B \rightarrow id | \bot | \top | \neg B | B \land B | B \lor B | (B)$
+
+Umwandlung in eindeutige Grammatik (B ist Startsymbol):
+
+$B \rightarrow B \lor C | C$
+
+$C \rightarrow C \land D | D$
+
+$D \rightarrow \neg D | A$
+
+$A \rightarrow id | \bot | \top | (B)$
+
+b. Ergänzung um Implikation
+
+$B \rightarrow E \rightarrow B | E$
+
+$E \rightarrow E \lor C | C$
+
+$C \rightarrow C \land D | D$
+
+$D \rightarrow \neg D | A$
+
+$A \rightarrow id | \bot | \top | (B)$
+
+## Aufgabe 2
+G:
+
+$S \rightarrow cAB | cA$
+
+$A \rightarrow aAb | ab$
+
+$B \rightarrow cBb | cb$
+
+1. "entferne nicht terminierende und nicht erreichbare Variablen". (Es gibt aber keine)
+2. "Mache $G$ $\epsilon$-frei und entferne alle 1-Variablen Regeln".
+
+   **\***: Mache $G$ $\epsilon$-frei : $G$ ist schon $\epsilon$-frei ($\epsilon \notin L(G)$)
+
+   **\***: Entferne alle 1-Variablen Regeln: Es gibt aber keine.
+3. "In jeder Regel $A \rightarrow \alpha$ mit $|\alpha| > 1$ ersetze terminalsymbol $a$ durch neue Variablen $x_a$ und füge die Regel $x_a \rightarrow a$ hinzu."
+
+   $S \rightarrow cAB$ ersetzt durch $S \rightarrow X_c AB, X_c \rightarrow c$
+
+   $S \rightarrow cA$ ersetzt durch $S \rightarrow X_c A$
+
+   $S \rightarrow aAb$ ersetzt durch $A \rightarrow X_a AX_b, X_a \rightarrow a, X_b \rightarrow b$
+
+   $A \rightarrow ab$ ersetzt durch $A \rightarrow X_a X_b$
+
+   $B \rightarrow cBb$ ersetzt durch $B \rightarrow X_c B X_b$
+
+   $B \rightarrow cb$ ersetzt durch $B \rightarrow X_c X_b$
+
+4. "Ersetze jede Regel der Form ... $\rightarrow B_{n-1} B_n$ (Folie 7, Seite 42)"
+
+   $S \rightarrow x_c AB$ ersetzt durch $S \rightarrow X_c D_1, D_1 \rightarrow AB$
+
+   $A \rightarrow X_a A X_b$ ersetzt durch $A \rightarrow X_a D_2, D_2 \rightarrow AX_b$
+
+   $B \rightarrow X_c B X_b$ ersetzt durch $B \rightarrow X_c D_3, D_3 \rightarrow BX_b$
+
+$G_{CNF}$
+
+$S \rightarrow X_c D_1$
+
+$S \rightarrow X_c A$
+
+$A \rightarrow X_a D_2$
+
+$A \rightarrow X_a X_b$
+
+$B \rightarrow X_c D_3$
+
+$B \rightarrow X_c X_b$
+
+$D_1 \rightarrow AB$
+
+$D_2 \rightarrow A X_b$
+
+$D_3 \rightarrow B X_b$
+
+$X_a \rightarrow a$
+
+$X_b \rightarrow b$
+
+$X_c \rightarrow c$
+
+b.
+
+\begin{tabular}{c|c|c|c|c|c|}
+5 & S & & & & \\ \hline
+4 & \textbf{-} & $D_1$ &   &  &   \\ \hline
+3 & S &\textbf{-}&\textbf{-}&  &    \\ \hline
+2 & \textbf{-} & A &\textbf{-}& B &    \\ \hline
+1 & $X_c$ & $X_a$ & $X_b$ & $X_c$ & $X_b$  \\ \hline
+$M_{ij}$ & c & a & b & c & b \\ \hline
+\end{tabular}
+
+$S \in M_{15}$ für $w = cabcb$
+
+Also $w = cabcb \in L(G_{CNF})$
+
+c.
+
+\begin{tabular}{c|c|c|c|c|c|c|}
+6 & \textbf{-} & & & & & \\ \hline
+5 & \textbf{-} & \textbf{-} & & & & \\ \hline
+4 & \textbf{-} & \textbf{-} & $D_1$ & & &   \\ \hline
+3 & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & & \\ \hline
+2 & \textbf{-} & \textbf{-} & A & \textbf{-} & B & \\ \hline
+1 & $X_c$ & $X_a$ & $X_a$ & $X_b$ & $X_c$ & $X_b$ \\ \hline
+$M_{ij}$ & c & a & a & b & c & b\\ \hline
+\end{tabular}
+
+$S \notin M_{16}$ für $w = caabcb$
+
+Also $w = caabcb \notin L(G_{CNF})$
+
+## Aufgabe 3
+
+a. $G: S \rightarrow \emptyset\ |\ \epsilon\ |\ a\ |\ b\ |\ (S + S)\ |\ (SS)\ |\ S^*$
+
+G:
+
+$S \rightarrow S +B\ |\ B$
+
+$B \rightarrow BC\ |\ C$
+
+$C \rightarrow C^*\ |\ A$
+
+$A \rightarrow \emptyset\ |\ \epsilon\ |\ a\ |\ b$
+
+b. G:
+
+$S \rightarrow A_1 b A_2$
+
+$A_1 \rightarrow ab\ |\ b A_3 b$
+
+$A_3 \rightarrow aA_3\ |\ \epsilon$
+
+$A_2 \rightarrow baA_2\ |\ bA_2\ |\ \epsilon$
+
+c. G:
+
+$S \rightarrow (G) + (G)\ |\ U + U$
+
+$G \rightarrow U+1\ |\ 1 + U$
+
+$U \rightarrow 1\ |\ (G)+1\ |\ 1 + (G)$
+
+## Aufgabe 4
+a. Jede Produktion der Form $A \rightarrow a$ kann durch die Produktion $A \rightarrow aB$ und $B \rightarrow \epsilon$ ersetzt werden, die in Abstimmung mit der Definition von rechtslinearen Grammatiken sind. $\Box$
+
+b.
